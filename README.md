@@ -6,10 +6,10 @@
 *react-native-paper* - Mainly for UI/UX to support material design
 
 
-react-native-config - To have separated config for the environment variables
+*react-native-config* - To have separated config for the environment variables
 
 
-moment - Mainly for datetime related operations
+*moment* - Mainly for datetime related operations
 
 
 
