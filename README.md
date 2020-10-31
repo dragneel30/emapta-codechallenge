@@ -2,7 +2,8 @@
 
 # Here are the libraries I used throughout the code challenge
 
-react-native-paper - Mainly for UI/UX to support material design
+
+*react-native-paper* - Mainly for UI/UX to support material design
 
 
 react-native-config - To have separated config for the environment variables
