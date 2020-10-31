@@ -22,7 +22,7 @@ const ArticleCard: FC<ArticleCardData> = (props) => {
         )}
         <Text style={styles.title} onPress={onPressTitle}>{title}</Text>
         <View style={{ flexDirection: "row" }}>
-          <Text style={styles.author}>{author}</Text>
+          <Text style={styles.author}>{author ? author : DISPLAYS.no_author}</Text>
           <Text style={styles.date}>{toUserFriendlyDate(publishedAt)}</Text>
         </View>
         <Text style={styles.label}>{DISPLAYS.description}</Text>
@@ -31,7 +31,7 @@ const ArticleCard: FC<ArticleCardData> = (props) => {
            asList ? (
             <View>
                <Text style={styles.label}>{DISPLAYS.content}</Text>
-               <Text>{content}</Text>
+               <Text>{content ? content : DISPLAYS.NA}</Text>
             </View>
            ) : (
             <></>

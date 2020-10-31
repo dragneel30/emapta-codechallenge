@@ -5,7 +5,9 @@ import { Linking, Platform, ToastAndroid, AlertIOS } from "react-native";
 export const DISPLAYS = Object.freeze({
 
     content: 'Content:',
-    description: 'Description:'
+    description: 'Description:',
+    NA: 'N/A',
+    no_author: 'No Author'
 
 })
 
