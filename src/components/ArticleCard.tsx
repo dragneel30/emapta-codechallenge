@@ -2,12 +2,14 @@ import React, { FC } from "react";
 import { Card, Text } from "react-native-paper";
 import { StyleSheet, View, Image } from "react-native";
 import { toUserFriendlyDate } from "../utils/date_utils";
+import { DISPLAYS } from "../utils/display_utils";
 
 const ArticleCard: FC<ArticleCardData> = (props) => {
   const {
-    data: { urlToImage, title, author, description, publishedAt },
+    data: { urlToImage, title, author, description, publishedAt, content },
     onPress,
-    onPressTitle
+    onPressTitle,
+    asList
   } = props;
 
   return (
@@ -23,7 +25,18 @@ const ArticleCard: FC<ArticleCardData> = (props) => {
           <Text style={styles.author}>{author}</Text>
           <Text style={styles.date}>{toUserFriendlyDate(publishedAt)}</Text>
         </View>
+        <Text style={styles.label}>{DISPLAYS.description}</Text>
         <Text>{description}</Text>
+         {
+           asList ? (
+            <View>
+               <Text style={styles.label}>{DISPLAYS.content}</Text>
+               <Text>{content}</Text>
+            </View>
+           ) : (
+            <></>
+           )
+         }
       </Card.Content>
     </Card>
   );
@@ -52,4 +65,8 @@ const styles = StyleSheet.create({
   date: {
     flex: 1,
   },
+  label: {
+    fontWeight: 'bold',
+    fontSize: 24
+  }
 });

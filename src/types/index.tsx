@@ -8,12 +8,14 @@ interface Article {
     author: string, 
     description: string,
     publishedAt: string,
+    content: string,
 }
 
 interface ArticleCardData {
     data: Article
     onPress?: () => void
     onPressTitle?: () => void
+    asList: Boolean
 }
 
 interface Props {

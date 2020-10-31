@@ -20,6 +20,7 @@ export default class HomeScreen extends React.Component<Props> {
     })
 
     if (articles != API_RESULT.ERROR) {
+      console.log('testset')
       this.setState({ articles: articles, refreshing: false });
     }
 
@@ -36,7 +37,7 @@ export default class HomeScreen extends React.Component<Props> {
     index.toString();
 
   renderItem = ({ item, index }) => {
-    return <ArticleCard data={item} onPress={this.goToDetails(item)} />;
+    return <ArticleCard data={item} onPress={this.goToDetails(item)} asList={false} />;
   };
 
   render() {
