@@ -1,20 +1,28 @@
 import React from "react";
-import { View, FlatList, StyleSheet, Text } from "react-native";
+import { View, FlatList, StyleSheet, Text, RefreshControl } from "react-native";
 import ArticleCard from "../components/ArticleCard";
 import { getCurrentDayArticles, API_RESULT } from "../apis/APICommonService";
 
 export default class HomeScreen extends React.Component<Props> {
   state = {
     articles: [],
+    refreshing: true
   };
 
   async componentDidMount() {
+    await this.initList()
+  }
+
+  initList = async () => {
+  
     let articles = await getCurrentDayArticles({
       q: "programming",
-    });
+    })
+
     if (articles != API_RESULT.ERROR) {
-      this.setState({ articles: articles });
+      this.setState({ articles: articles, refreshing: false });
     }
+
   }
 
   goToDetails = (article) => {
@@ -32,7 +40,7 @@ export default class HomeScreen extends React.Component<Props> {
   };
 
   render() {
-    const { articles } = this.state;
+    const { articles, refreshing } = this.state;
 
     return (
       <View style={styles.container}>
@@ -41,6 +49,12 @@ export default class HomeScreen extends React.Component<Props> {
           data={articles}
           renderItem={this.renderItem}
           keyExtractor={this.getKeyExtractor}
+          refreshControl={
+             <RefreshControl
+              refreshing={refreshing}
+              onRefresh={this.initList}
+             />
+           }
         />
       </View>
     );

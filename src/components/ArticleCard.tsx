@@ -7,6 +7,7 @@ const ArticleCard: FC<ArticleCardData> = (props) => {
   const {
     data: { urlToImage, title, author, description, publishedAt },
     onPress,
+    onPressTitle
   } = props;
 
   return (
@@ -17,7 +18,7 @@ const ArticleCard: FC<ArticleCardData> = (props) => {
         ) : (
           <></>
         )}
-        <Text style={styles.title}>{title}</Text>
+        <Text style={styles.title} onPress={onPressTitle}>{title}</Text>
         <View style={{ flexDirection: "row" }}>
           <Text style={styles.author}>{author}</Text>
           <Text style={styles.date}>{toUserFriendlyDate(publishedAt)}</Text>

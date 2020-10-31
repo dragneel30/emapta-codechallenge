@@ -13,9 +13,10 @@ interface Article {
 interface ArticleCardData {
     data: Article
     onPress?: () => void
+    onPressTitle?: () => void
 }
 
 interface Props {
     navigation: any,
     route: any
-  }
+}
