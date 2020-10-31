@@ -1,3 +1,5 @@
+Lorence Hernandez
+
 # Code challenge written in react native typescript
 
 # Here are the libraries I used throughout the code challenge
@@ -11,6 +13,7 @@
 
 *moment* - Mainly for datetime related operations. I use this instead of native Date because I am comfortable with it.
 
+I did not use context or redux or any state management library as there is no use case for this project.
 
 
 other libraries in package.json are dependencies.
